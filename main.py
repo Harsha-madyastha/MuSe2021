@@ -53,7 +53,7 @@ def parse_args():
                         help='Specify initial learning rate (default: 0.0001).')
     parser.add_argument('--seed', type=int, default=101,
                         help='Specify the initial random seed (default: 101).')
-    parser.add_argument('--n_seeds', type=int, default=5,
+    parser.add_argument('--n_seeds', type=int, default=10,
                         help='Specify number of random seeds to try (default: 5).')
     parser.add_argument('--use_gpu', action='store_true',
                         help='Specify whether to use gpu for training (default: False).')
@@ -116,7 +116,7 @@ def main(args):
                                                                args.lr, args.paths['model'], seed, args.use_gpu,
                                                                criterion, regularization=args.regularization)
             if not args.predict:  # run evaluation only if test labels are available
-                test_loss, test_score = evaluate(args.task, model, data_loader['test'], criterion, args.use_gpu)
+                test_loss, test_score = evaluate(args.task, model, data_loader['devel'], criterion, args.use_gpu)
                 test_scores.append(test_score)
                 if args.task in ['physio', 'stress', 'wilder']:
                     print(f'[Test CCC]:  {test_score:7.4f}')
@@ -188,6 +188,7 @@ if __name__ == '__main__':
     if args.save:
         args.paths['save'] = os.path.join(args.save_path, args.task, args.log_file_name)
     for folder in args.paths.values():
+        print(folder)
         if not os.path.exists(folder):
             os.makedirs(folder, exist_ok=True)
 
