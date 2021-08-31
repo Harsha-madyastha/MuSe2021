@@ -1,7 +1,8 @@
 import os
 
 # adjust your paths here
-BASE_PATH = '/Muse2021/data/'
+BASE_PATH = '/vol/mbp_projects/datasets/muse2021/'
+BASE_PATH1='/homes/hmanjunath/Project'
 
 PATH_TO_ALIGNED_FEATURES = {
     'wilder': os.path.join(BASE_PATH, 'c1_muse_wilder/feature_segments'),
@@ -26,7 +27,7 @@ PATH_TO_METADATA = {
 
 PARTITION_FILES = {task: os.path.join(path_to_meta, 'partition.csv') for task,path_to_meta in PATH_TO_METADATA.items()}
 
-OUTPUT_PATH = '/Muse2021/results/'
+OUTPUT_PATH = '/homes/hmanjunath/Project/MuSe2021/results/'
 LOG_FOLDER = os.path.join(OUTPUT_PATH, 'log_muse')
 DATA_FOLDER = os.path.join(OUTPUT_PATH, 'data_muse')
 MODEL_FOLDER = os.path.join(OUTPUT_PATH, 'model_muse')
