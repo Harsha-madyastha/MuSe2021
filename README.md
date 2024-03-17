@@ -1,4 +1,4 @@
-# Project: Affective Signals
+# Project: Multimodal Emotion Prediction under Stress (MuSe-Stress)
 
 ## Introduction
 
